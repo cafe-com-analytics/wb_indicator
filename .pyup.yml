@@ -1,0 +1,7 @@
+update: all
+
+schedule: "every week"
+
+requirements:
+  - Pipfile
+  - Pipfile.lock
