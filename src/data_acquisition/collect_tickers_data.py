@@ -1,9 +1,27 @@
 from datetime import date
-from glob import glob
-import os
+# from glob import glob
+# import os
 
 import pandas as pd
+from pandas.core.frame import DataFrame
 import yfinance as yf
+
+
+def _verifying_date_format(input_date):
+    """This function verify the date format.
+    """
+    input_date = input_date
+
+    try:
+        year = int(input_date[:4])
+        month = int(input_date[5:7])
+        day = int(input_date[-2:])
+        converted_date = str(date(year, month, day))
+        correct_date = True
+    except ValueError:
+        correct_date = False
+
+    return (correct_date, converted_date)
 
 
 class TickersCollector:
@@ -50,31 +68,29 @@ class TickersCollector:
 
 class DataCollector:
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, *, symbols_list: list, start_date: str, end_date: str) -> None:
+        self.symbols_list = symbols_list
+        self.start_date = _verifying_date_format(start_date)[-1]
+        self.end_date = _verifying_date_format(end_date)[-1]
+        # TODO: VERIFICAR A NECESSIDADE DE INCLUIR VALIDAÇÕES DE DATA E ALTERAÇÃO CASO DATA FORNECIDA NÃO SEJA OK.
 
-    def __verifying_date_format(input_date):
-        """This function verify the date format.
-        """
-        input_date = input_date
+    def get_data(self, *, data_type: str) -> DataFrame:
+        # FIXME: TROCAR A CRIAÇÃO DE ARQUIVO POR ADICIONAR CONEXÃO COM BANCO DE DADOS.
+        # TODO: POR ENQUANTO, ESTOU TESTANDO SOMENTE COM O "close", porém, devemos deixar que o usuário escolha o tipo de dado (Opne, Close...).
+        data = yf.download(self.symbols_list, start=self.start_date, end=self.end_date)
+        data = data[data_type]
 
-        try:
-            year = int(input_date[:4])
-            month = int(input_date[5:7])
-            day = int(input_date[-2:])
-            converted_date = str(date(year, month, day))
-            correct_date = True
-        except ValueError:
-            correct_date = False
-
-        return (correct_date, converted_date)
-
+        return data
 
 
 if __name__ == "__main__":
     tickers = TickersCollector(market='br', qty=10)
     tickers.add_market()
-    print(tickers.show_tickers())
+    lst_tickers = tickers.show_tickers()
+    print()
+
+    data_collector = DataCollector(symbols_list=lst_tickers, start_date='2021-01-01', end_date='2021-03-01')
+    print(data_collector.get_data(data_type='Close'))
 
     # from src.data_acquisition import Market as mk
 
