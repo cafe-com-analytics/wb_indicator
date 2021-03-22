@@ -26,7 +26,7 @@ def _verifying_date_format(input_date):
 
 class TickersCollector:
 
-    def __init__(self, market: str = 'br', symbols_list: list = [], qty: int = 10) -> None:
+    def __init__(self, *, market: str = 'br', symbols_list: list = [], qty: int = 10) -> None:
         """This function loads the desirable symbols.
         Args:
             market (str, optional): accepts only 'br' or 'us'. Defaults to 'br'.
