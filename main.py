@@ -1,6 +1,6 @@
 # import numpy as np
 # import pandas as pd
-from datetime import date
+from datetime import date, timedelta
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import TickersCollector, DataCollector
@@ -10,6 +10,9 @@ def main():
     st.title('WB Indicator')
     # st.sidebar.selectbox("Escolha uma opção:", ['Brasil', 'EUA'])
     market_selection = st.sidebar.radio("Escolha uma opção:", ["Brasil", "EUA"])
+
+    # IMPROVEMENT: Logo abaixo, deixamos uma opção ao radio buttom acima. Talvez seja legal com ações.
+    # st.sidebar.multiselect("Escolha uma opção:", ["Brasil", "EUA"])
 
     if market_selection == "Brasil":
         market = "br"
@@ -27,10 +30,18 @@ def main():
     tickers.add_market()
     lst_tickers = tickers.show_tickers()
 
-    end_date = str(date.today())
-    start_date = '2021-01-01'
+    end_date = date.today()
+    start_date = end_date + timedelta(days=-180)
 
-    data_collector = DataCollector(symbols_list=lst_tickers, start_date=start_date, end_date=end_date)
+    start_date = st.sidebar.date_input('Start date', start_date)
+    end_date = st.sidebar.date_input('End date', end_date)
+
+    if start_date < end_date:
+        st.sidebar.success(f'Start date: {start_date}\n\nEnd date: {end_date}')
+    else:
+        st.sidebar.error('Error: End date must fall after start date.')
+
+    data_collector = DataCollector(symbols_list=lst_tickers, start_date=str(start_date), end_date=str(end_date))
 
     chart_data = data_collector.get_data(data_type="Close")
     chart_data_normalised = chart_data/chart_data.iloc[0]
