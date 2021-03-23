@@ -19,7 +19,7 @@ def _verifying_date_format(input_date):
         converted_date = str(date(year, month, day))
         correct_date = True
     except ValueError:
-        correct_date = False
+        correct_date = converted_date = '2015-01-01'
 
     return (correct_date, converted_date)
 
@@ -38,7 +38,7 @@ class TickersCollector:
         self.market = market
         self.qty = qty
 
-        qty_plus = qty - len(symbols_list)
+        qty_plus = max([qty - len(symbols_list), 0])
 
         symbols = pd.read_csv('./data/interim/lst_stock_symbols.txt', sep=';')
         symbols = symbols.loc[symbols['country'] == market]
