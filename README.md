@@ -7,7 +7,7 @@
 ## Primeira cara do MVP
 
 <img
-    src='./report/figures/cara_mvp_20210321.gif'
-    alt='Gráfico de retorno ao longo do tempo de indicadores do mercado brasileiro'
+    src='./report/figures/cara_mvp_20210322.gif'
+    alt='Gráfico de retorno ao longo do tempo de indicadores do mercado brasileiro e americano'
     width='400'
 />
