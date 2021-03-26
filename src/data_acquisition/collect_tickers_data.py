@@ -1,15 +1,11 @@
 from datetime import date
-# from glob import glob
-# import os
 
 import pandas as pd
-from pandas.core.frame import DataFrame
 import yfinance as yf
 
 
 def _verifying_date_format(input_date):
-    """This function verify the date format.
-    """
+    """This function verify the date format."""
     input_date = input_date
 
     try:
@@ -61,8 +57,6 @@ class TickersCollector:
         else:
             symbols_list_w_market.extend(['SPY', '^IXIC', '^DJI'])
 
-        print(f"Tickers selected: {symbols_list_w_market}")
-
         return symbols_list_w_market
 
 
@@ -74,7 +68,13 @@ class DataCollector:
         self.end_date = _verifying_date_format(end_date)[-1]
         # TODO: VERIFICAR A NECESSIDADE DE INCLUIR VALIDAÇÕES DE DATA E ALTERAÇÃO CASO DATA FORNECIDA NÃO SEJA OK.
 
-    def get_data(self, *, data_type: str) -> DataFrame:
+    def get_data(self, *, data_type: str) -> pd.DataFrame:
+        """get_data returns a pandas.DataFrame of the chosen data_type.
+        Args:
+            data_type (str): "Adj Close", "Close", "High", "Low", "Open", or "Volume"
+        Returns:
+            DataFrame: with the data_type time series
+        """
         # FIXME: TROCAR A CRIAÇÃO DE ARQUIVO POR ADICIONAR CONEXÃO COM BANCO DE DADOS.
         # TODO: POR ENQUANTO, ESTOU TESTANDO SOMENTE COM O "close", porém, devemos deixar que o usuário escolha o tipo de dado (Opne, Close...).
         data = yf.download(self.symbols_list, start=self.start_date, end=self.end_date)

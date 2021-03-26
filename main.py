@@ -1,34 +1,28 @@
-# import numpy as np
-# import pandas as pd
+import configparser
 from datetime import date, timedelta
+
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import TickersCollector, DataCollector
 
 
 def main():
-    st.title('WB Indicator')
-    # st.sidebar.selectbox("Escolha uma opção:", ['Brasil', 'EUA'])
-    market_selection = st.sidebar.radio("Escolha uma opção:", ["Brasil", "EUA"])
+    # Reading config file with tickers.
+    config = configparser.ConfigParser()
+    config.read('config.ini')
 
-    # IMPROVEMENT: Logo abaixo, deixamos uma opção ao radio buttom acima. Talvez seja legal com ações.
-    # st.sidebar.multiselect("Escolha uma opção:", ["Brasil", "EUA"])
+    # Sidebar section:
+    market_selection = st.sidebar.radio("Escolha uma opção:", ["Brasil", "EUA"])
 
     if market_selection == "Brasil":
         market = "br"
     else:
         market = "us"
 
-    st.header('Indice do mercado selecionado')
-    st.write('Retorno ao longo do tempo:')
+    tickers_list = config.get('TICKERS', market)
+    tickers_list = sorted(tickers_list.split(','))
 
-    # st.write(pd.DataFrame({'first column': [1, 2, 3, 4], 'second column': [10, 20, 30, 40]}))
-    # map_data = pd.DataFrame(np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4], columns=['lat', 'lon'])
-    # st.map(map_data)
-
-    tickers = TickersCollector(market=market, symbols_list=[], qty=0)
-    tickers.add_market()
-    lst_tickers = tickers.show_tickers()
+    tickers_selection = st.sidebar.multiselect("Tickers:", tickers_list)
 
     end_date = date.today()
     start_date = end_date + timedelta(days=-180)
@@ -41,11 +35,24 @@ def main():
     else:
         st.sidebar.error('Error: End date must fall after start date.')
 
+    # Principal section or visualization section:
+    st.title('WB Indicator')
+    st.header('Indice do mercado selecionado')
+    st.write('Retorno ao longo do tempo:')
+
+    symbols_list = []
+    symbols_list.extend(tickers_selection)
+
+    tickers = TickersCollector(market=market, symbols_list=symbols_list, qty=0)
+    tickers.add_market()
+    lst_tickers = tickers.show_tickers()
+
     data_collector = DataCollector(symbols_list=lst_tickers, start_date=str(start_date), end_date=str(end_date))
 
     chart_data = data_collector.get_data(data_type="Close")
     chart_data_normalised = chart_data/chart_data.iloc[0]
     st.line_chart(chart_data_normalised)
+    #  TODO: TRY TO USE SEABORN AND MATPLOTLIB.
 
     if st.checkbox('Show dataframe'):
         st.write(chart_data_normalised)
