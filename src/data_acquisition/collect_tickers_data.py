@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, timedelta
 
 import pandas as pd
 import yfinance as yf
@@ -12,10 +12,10 @@ def _verifying_date_format(input_date):
         year = int(input_date[:4])
         month = int(input_date[5:7])
         day = int(input_date[-2:])
-        converted_date = str(date(year, month, day))
+        converted_date = date(year, month, day)
         correct_date = True
     except ValueError:
-        correct_date = converted_date = '2015-01-01'
+        correct_date = converted_date = date(2015, 1, 1)
 
     return (correct_date, converted_date)
 
@@ -49,15 +49,15 @@ class TickersCollector:
     def show_tickers(self) -> list:
         return self.symbols_list
 
-    def add_market(self) -> list:
-        symbols_list_w_market = self.symbols_list
+    # def add_market(self) -> list:
+    #     symbols_list_w_market = self.symbols_list
 
-        if self.market == 'br':
-            symbols_list_w_market.extend(["^BVSP", "^IBX50"])
-        else:
-            symbols_list_w_market.extend(['SPY', '^IXIC', '^DJI'])
+    #     if self.market == 'br':
+    #         symbols_list_w_market.extend(["^BVSP", "^IBX50"])
+    #     else:
+    #         symbols_list_w_market.extend(['SPY', '^IXIC', '^DJI'])
 
-        return symbols_list_w_market
+    #     return symbols_list_w_market
 
 
 class DataCollector:
@@ -65,7 +65,7 @@ class DataCollector:
     def __init__(self, *, symbols_list: list, start_date: str, end_date: str) -> None:
         self.symbols_list = symbols_list
         self.start_date = _verifying_date_format(start_date)[-1]
-        self.end_date = _verifying_date_format(end_date)[-1]
+        self.end_date = _verifying_date_format(end_date)[-1] + timedelta(days=1)
         # TODO: VERIFICAR A NECESSIDADE DE INCLUIR VALIDAÇÕES DE DATA E ALTERAÇÃO CASO DATA FORNECIDA NÃO SEJA OK.
 
     def get_data(self, *, data_type: str) -> pd.DataFrame:
