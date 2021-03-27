@@ -7,6 +7,9 @@ name = "pypi"
 pandas = "*"
 streamlit = "*"
 yfinance = "*"
+seaborn = "*"
+matplotlib = "*"
+ipykernel = "*"
 
 [dev-packages]
 flake8 = "*"
