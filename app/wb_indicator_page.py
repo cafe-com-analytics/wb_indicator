@@ -1,9 +1,10 @@
 import configparser
 from datetime import date, timedelta
 
-import matplotlib.pyplot as plt
+from bokeh.plotting import figure, show
+# import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
+# import seaborn as sns
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import DataCollector
@@ -64,10 +65,14 @@ def wb_indicator():
 
         # TODO: TRY TO USE SEABORN AND MATPLOTLIB.
         chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
-        fig, ax = plt.subplots(figsize=(20, 5))
-        ax = sns.lineplot(x='Date', y='return(s)', hue='index(es)', data=chart_data_unpivoted, ax=ax)
-        plt.xlim(start_date, end_date)
-        st.pyplot(fig)
+        p = figure(title="WB Indicator", x_axis_label='Date', y_axis_label='WB Indicator [marketcap/gdp]')
+        p.line(chart_data_unpivoted["Date"], chart_data_unpivoted.iloc[:, -1], legend_label="Temp", line_width=2)
+        show(p)
+
+        # fig, ax = plt.subplots(figsize=(20, 5))
+        # ax = sns.lineplot(x='Date', y='return(s)', hue='index(es)', data=chart_data_unpivoted, ax=ax)
+        # plt.xlim(start_date, end_date)
+        # st.pyplot(fig)
 
         if st.checkbox('Show dataframe'):
             st.write(chart_data_normalised)

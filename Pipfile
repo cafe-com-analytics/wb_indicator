@@ -10,6 +10,7 @@ yfinance = "*"
 seaborn = "*"
 matplotlib = "*"
 ipykernel = "*"
+bokeh = "*"
 
 [dev-packages]
 flake8 = "*"
