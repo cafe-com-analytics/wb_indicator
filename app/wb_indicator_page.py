@@ -63,7 +63,7 @@ def wb_indicator():
         chart_data_normalised = chart_data/chart_data.iloc[0]
         # st.line_chart(chart_data_normalised)
 
-        # TODO: TRY TO USE SEABORN AND MATPLOTLIB.
+        # TODO: TRY TO USE SEABORN AND MATPLOTLIB OR BOKEH.
         chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
         p = figure(title="WB Indicator", x_axis_label='Date', y_axis_label='WB Indicator [marketcap/gdp]')
         p.line(chart_data_unpivoted["Date"], chart_data_unpivoted.iloc[:, -1], legend_label="Temp", line_width=2)
