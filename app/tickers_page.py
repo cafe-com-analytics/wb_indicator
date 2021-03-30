@@ -54,9 +54,10 @@ def main():
         "Click below to select a new asset",
         components.index.sort_values(),
         index=3,
-        format_func=label,
-    )
+        format_func=label,)
+
     title.title(components.loc[asset].Security)
+
     if st.sidebar.checkbox("View company info", True):
         st.table(components.loc[asset])
     data0 = load_quotes(asset)

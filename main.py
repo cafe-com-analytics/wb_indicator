@@ -8,14 +8,12 @@ st.set_page_config(page_title="WB Indicator", page_icon=":chart_with_upwards_tre
 
 def main():
     # Sidebar section:
-    # page_selection = st.sidebar.radio("Select one option:", ["WB Indicator", "Tickers"])
+    page_selection = st.sidebar.radio("Select one option:", ["WB Indicator", "Tickers"])
 
-    # if page_selection == "WB Indicator":
-    #     wb_indicator()
-    # elif page_selection == "Tickers":
-    #     tickers_indicator()
-
-    tickers_indicator()
+    if page_selection == "WB Indicator":
+        wb_indicator()
+    elif page_selection == "Tickers":
+        tickers_indicator()
 
 
 if __name__ == '__main__':

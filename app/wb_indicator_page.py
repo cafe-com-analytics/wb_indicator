@@ -1,13 +1,20 @@
 import configparser
 from datetime import date, timedelta
 
+from bokeh.embed import components
+from bokeh.io import output_notebook, curdoc
+from bokeh.layouts import (row, column, gridplot)
+from bokeh.models import (NumeralTickFormatter, HoverTool, CategoricalColorMapper, Div)
+from bokeh.models.widgets import Tabs, Panel
+from bokeh.palettes import Bokeh6
 from bokeh.plotting import figure, show
-# import matplotlib.pyplot as plt
 import pandas as pd
-# import seaborn as sns
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import DataCollector
+
+pd.options.display.float_format = "{:,.2f}".format
+output_notebook()
 
 
 def unpivot_df(df: pd.DataFrame, var_name: str = 'index(es)', value_name: str = 'return(s)') -> pd.DataFrame:
@@ -61,13 +68,41 @@ def wb_indicator():
         chart_data = data_collector.get_data(data_type="Close")
 
         chart_data_normalised = chart_data/chart_data.iloc[0]
+        chart_data_normalised = chart_data_normalised.reset_index()
         # st.line_chart(chart_data_normalised)
 
         # TODO: TRY TO USE SEABORN AND MATPLOTLIB OR BOKEH.
-        chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
-        p = figure(title="WB Indicator", x_axis_label='Date', y_axis_label='WB Indicator [marketcap/gdp]')
-        p.line(chart_data_unpivoted["Date"], chart_data_unpivoted.iloc[:, -1], legend_label="Temp", line_width=2)
-        show(p)
+        # chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
+        # p = figure(title="WB Indicator", x_axis_label='Date', y_axis_label='WB Indicator [marketcap/gdp]')
+        # p.line(chart_data_unpivoted["Date"], chart_data_unpivoted.iloc[:, -1], legend_label="Temp", line_width=2)
+        # show(p)
+
+        # ######################------------------BOKEH------------------#######################
+        chart_data_normalised["formated_date"] = chart_data_normalised["Date"].apply(lambda d: d.strftime("%d-%m-%Y"))
+        curdoc().theme = 'caliber'
+        select_tools = ['pan', 'box_select', 'lasso_select', 'box_zoom', 'wheel_zoom', 'reset']
+
+        p = figure(
+            title="Returns", x_axis_label='Date', y_axis_label='Return', x_axis_type='datetime',
+            plot_width=900, plot_height=350, toolbar_location='below', tools=select_tools)
+
+        p.toolbar.logo = None
+
+        for ticker, color in zip(chart_data_normalised.columns[1:], Bokeh6):
+            p.line(
+                x="Date", y=ticker, source=chart_data_normalised,
+                legend_label=ticker, line_width=2, line_color=color, alpha=0.7,
+                hover_line_color='red', hover_alpha=0.5)
+
+        tooltips = [('Ticker', ticker), ('Date', '@formated_date'), ('Return', f'@{ticker}')]
+        p.add_tools(HoverTool(tooltips=tooltips))
+
+        p.legend.location = "bottom_left"
+
+        script, div = components(p)
+        # show(p)
+
+        # ######################------------------BOKEH------------------#######################
 
         # fig, ax = plt.subplots(figsize=(20, 5))
         # ax = sns.lineplot(x='Date', y='return(s)', hue='index(es)', data=chart_data_unpivoted, ax=ax)
