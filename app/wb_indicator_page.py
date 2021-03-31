@@ -14,7 +14,7 @@ import streamlit as st
 from src.data_acquisition.collect_tickers_data import DataCollector
 
 pd.options.display.float_format = "{:,.2f}".format
-output_notebook()
+# output_notebook()
 
 
 def unpivot_df(df: pd.DataFrame, var_name: str = 'index(es)', value_name: str = 'return(s)') -> pd.DataFrame:
@@ -88,7 +88,7 @@ def wb_indicator():
 
         p.toolbar.logo = None
 
-        for ticker, color in zip(chart_data_normalised.columns[1:], Bokeh6):
+        for ticker, color in zip(chart_data_normalised.columns[1:-1], Bokeh6):
             p.line(
                 x="Date", y=ticker, source=chart_data_normalised,
                 legend_label=ticker, line_width=2, line_color=color, alpha=0.7,
@@ -99,7 +99,7 @@ def wb_indicator():
 
         p.legend.location = "bottom_left"
 
-        script, div = components(p)
+        st.bokeh_chart(p)
         # show(p)
 
         # ######################------------------BOKEH------------------#######################

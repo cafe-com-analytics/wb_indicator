@@ -13,7 +13,8 @@ def main():
     if page_selection == "WB Indicator":
         wb_indicator()
     elif page_selection == "Tickers":
-        tickers_indicator()
+    #     tickers_indicator()
+        pass
 
 
 if __name__ == '__main__':
