@@ -1,10 +1,9 @@
 import configparser
 from datetime import date, timedelta
 
-from bokeh.plotting import figure, show
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import pandas as pd
-# import seaborn as sns
+import seaborn as sns
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import DataCollector
@@ -17,7 +16,7 @@ def unpivot_df(df: pd.DataFrame, var_name: str = 'index(es)', value_name: str = 
     return df
 
 
-def wb_indicator():
+def wb_indicator() -> None:
     # Reading config file with tickers.
     config = configparser.ConfigParser()
     config.read('config.ini')
@@ -56,23 +55,28 @@ def wb_indicator():
     if len(indexes_selection) <= 0:
         st.markdown("""## Nothing to show yet.\n\nPlease use the sidebar options.""")
     else:
-        st.markdown(f"""## Selected index(es): {indexes_selection}\n\nVariation between {start_date} and {end_date}:""")
+        st.markdown(f"""## Selected index(es):\n\n{indexes_selection}\n\nVariation between {start_date} and {end_date}:""")
         data_collector = DataCollector(symbols_list=indexes_selection, start_date=str(start_date), end_date=str(end_date))
         chart_data = data_collector.get_data(data_type="Close")
 
         chart_data_normalised = chart_data/chart_data.iloc[0]
-        # st.line_chart(chart_data_normalised)
 
         # TODO: TRY TO USE SEABORN AND MATPLOTLIB.
         chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
-        p = figure(title="WB Indicator", x_axis_label='Date', y_axis_label='WB Indicator [marketcap/gdp]')
-        p.line(chart_data_unpivoted["Date"], chart_data_unpivoted.iloc[:, -1], legend_label="Temp", line_width=2)
-        show(p)
 
-        # fig, ax = plt.subplots(figsize=(20, 5))
-        # ax = sns.lineplot(x='Date', y='return(s)', hue='index(es)', data=chart_data_unpivoted, ax=ax)
-        # plt.xlim(start_date, end_date)
-        # st.pyplot(fig)
+        fig, ax = plt.subplots(figsize=(20, 5))
+        ax = sns.lineplot(x='Date', y='return(s)', hue='index(es)', data=chart_data_unpivoted, ax=ax)
+        plt.grid()
+        # X Axis
+        plt.xlim(start_date, end_date)
+        plt.xticks(rotation=90)
+        ax.xaxis.set_major_locator(plt.MultipleLocator(2))
+        ax.xaxis.set_major_locator(plt.MaxNLocator(30))
+        ax.xaxis.label.set_visible(False)
+        # Y Axis
+        ax.yaxis.set_major_locator(plt.MultipleLocator(0.01))
+        ax.yaxis.set_major_locator(plt.MaxNLocator(10))
+        st.pyplot(fig)
 
         if st.checkbox('Show dataframe'):
             st.write(chart_data_normalised)
