@@ -1,6 +1,6 @@
-update: all
-
-schedule: "every week"
+update: insecure
+branch: development
+schedule: "every month"
 
 requirements:
   - Pipfile.lock
