@@ -2,18 +2,11 @@ import configparser
 from datetime import date, timedelta
 
 import matplotlib.pyplot as plt
-import pandas as pd
 import seaborn as sns
 import streamlit as st
 
 from src.data_acquisition.collect_tickers_data import DataCollector
-
-
-def unpivot_df(df: pd.DataFrame, var_name: str = 'index(es)', value_name: str = 'return(s)') -> pd.DataFrame:
-    df = df.reset_index()
-    df = df.melt('Date', var_name=var_name, value_name=value_name)
-    df.dropna(how='any', inplace=True)
-    return df
+from src.process_data.define_dataframe import unpivot_df
 
 
 def wb_indicator() -> None:
@@ -61,7 +54,7 @@ def wb_indicator() -> None:
 
         chart_data_normalised = chart_data/chart_data.iloc[0]
 
-        # TODO: TRY TO USE SEABORN AND MATPLOTLIB.
+        # SEABORN AND MATPLOTLIB.
         chart_data_unpivoted = unpivot_df(chart_data_normalised, var_name='index(es)', value_name='return(s)')
 
         fig, ax = plt.subplots(figsize=(20, 5))
