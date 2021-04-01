@@ -1,5 +1,5 @@
 update: insecure
-branch: development
+branch: dev
 schedule: "every month"
 
 requirements:
