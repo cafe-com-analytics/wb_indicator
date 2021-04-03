@@ -1,8 +1,11 @@
 import configparser
 from datetime import date, timedelta
+import random
 
 import pandas as pd
 import yfinance as yf
+
+random.seed(42)
 
 
 def _verifying_date_format(input_date):
@@ -23,7 +26,8 @@ def _verifying_date_format(input_date):
 
 class DataCollector:
 
-    def __init__(self, *, symbols_list: list = None, start_date: str, end_date: str) -> None:
+    def __init__(self, *, market: str = 'br', symbols_list: list = None, start_date: str = '2020-01-01', end_date: str = '2021-01-01') -> None:
+        self.market = market
         self.symbols_list = symbols_list
         # TODO: NECESSÁRIO INCLUIR UM MÉTODO QUE VALIDE A LISTA DE SÍMBOLOS INSERIDA.
         self.start_date = _verifying_date_format(start_date)[-1]
@@ -45,7 +49,7 @@ class DataCollector:
 
         return data
 
-    def get_tickers_set(self, *, market: str = 'br', qty: int = 10) -> pd.DataFrame:
+    def get_tickers_set(self, *, qty: int = 10) -> pd.DataFrame:
         """[summary]
         Args:
             market (str, optional): [description]. Defaults to 'br'.
@@ -58,14 +62,15 @@ class DataCollector:
 
         config = configparser.ConfigParser()
         config.read('config.ini')
-        symbols = config.get('TICKERS', market)
+        symbols = config.get('TICKERS', self.market)
         symbols = sorted(symbols.split(','))
         qty_plus = max([qty - len(symbols_list), 0])
 
         if not symbols_list:
-            symbols = symbols.loc[:, 'symbol'].sample(qty_plus, random_state=42).tolist()
+            symbols = random.sample(symbols, qty_plus)
+            # symbols = symbols.loc[:, 'symbol'].sample(qty_plus, random_state=42).tolist()
         else:
-            symbols = symbols.loc[(~symbols['symbol'].isin(symbols_list)), 'symbol'].sample(qty_plus, random_state=42).tolist()
+            symbols = random.sample(symbols, qty_plus)
             symbols.extend(symbols_list)
 
         return symbols
