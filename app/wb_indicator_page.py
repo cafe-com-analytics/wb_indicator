@@ -73,3 +73,20 @@ def wb_indicator() -> None:
 
         if st.checkbox('Show dataframe'):
             st.write(chart_data_normalised)
+
+        # PLOT GDP GRAPH
+        gdp = DataCollector(start_date='2021-01-01', end_date='2021-03-01').get_gdp()
+
+        fig, ax = plt.subplots(figsize=(20, 5))
+        ax = sns.lineplot(x='Date', y='PIB', data=gdp, ax=ax)
+        plt.grid()
+        # X Axis
+        # plt.xlim(start_date, end_date)
+        plt.xticks(rotation=90)
+        ax.xaxis.set_major_locator(plt.MultipleLocator(2))
+        ax.xaxis.set_major_locator(plt.MaxNLocator(30))
+        ax.xaxis.label.set_visible(False)
+        # Y Axis
+        ax.yaxis.set_major_locator(plt.MultipleLocator(0.01))
+        ax.yaxis.set_major_locator(plt.MaxNLocator(10))
+        st.pyplot(fig)        
