@@ -2,11 +2,12 @@ import configparser
 from datetime import date, timedelta
 
 import matplotlib.pyplot as plt
-import seaborn as sns
+import seaborn as sns   
 import streamlit as st
 import yfinance as yf
 import numpy as np
 import pandas as pd
+import matplotlib.mlab as m
 
 from src.data_acquisition.collect_tickers_data import DataCollector
 from src.process_data.define_dataframe import unpivot_df
@@ -92,7 +93,7 @@ def wb_indicator() -> None:
         # Coleta dados do valor de echamento das ações
         symbols = config.get('TICKERS', market)
         # a = yf.download(symbols, start="2008-08-28", end="2021-04-02")
-        data_collector = DataCollector(symbols_list=symbols, start_date="2013-01-01", end_date="2021-04-02")
+        data_collector = DataCollector(symbols_list=symbols, start_date="2013-01-01", end_date="2021-04-04")
         stocks_br = data_collector.get_data()
         
         # Unpivot a base baixada da Yahoo Finance
@@ -130,16 +131,40 @@ def wb_indicator() -> None:
         pib['Year'] = pib['Date'].dt.to_period('Y')
         combined = pd.merge(mktcap_br, pib, on='Year', how='left')
 
+        # Fill NaN PIB 
+        combined['PIB'].fillna(method='ffill', inplace=True)
+
         # Criação do WB Indicator
         combined['Buffett_Indicator'] = combined.Marketcap_br / combined.PIB
 
         # Filtro de período
-        mask = (combined['Date_x'] > '01/01/2013') & (combined['Date_x'] <= '04/01/2021')
+        mask = (combined['Date_x'] > '01/01/2013') & (combined['Date_x'] < '04/04/2021')
         combined = combined.loc[mask]
+        combined['num_lin'] = np.arange(len(combined))
 
-        # PLOT GDP GRAPH
+        # Linha de Tendëncia
+        x = combined['num_lin']
+        op = combined['Buffett_Indicator']
+        coef = np.polyfit(x, op, 1)
+        combined['tend'] = coef[0] * x + coef[1]
+        # coef = np.polyfit(x, op, 2)
+        # combined['tend'] = coef[0] * x ** 2 + coef[1] * x + coef[2]
+
+        stdev = np.std(combined['tend'])
+        combined['stdev'] = combined['tend'] + stdev
+        combined['2stdev'] = combined['tend'] + stdev + stdev
+        combined['stdevneg'] = combined['tend'] - stdev
+        combined['2stdevneg'] = combined['tend'] - stdev - stdev
+
+
+        # PLOT WB Indicator GRAPH
         fig, ax = plt.subplots(figsize=(20, 5))
-        ax = sns.lineplot(x='Date_x', y='PIB', data=combined, ax=ax)
+        ax = sns.lineplot(x='Date_x', y='Buffett_Indicator', data=combined, ax=ax)
+        ax = sns.lineplot(x='Date_x', y='tend', data=combined, ax=ax, color = 'gray', alpha = 0.5,  ls="--")
+        ax = sns.lineplot(x='Date_x', y='stdev', data=combined, ax=ax, color = 'red', alpha = 0.2)
+        ax = sns.lineplot(x='Date_x', y='2stdev', data=combined, ax=ax, color = 'red', alpha = 0.2)
+        ax = sns.lineplot(x='Date_x', y='stdevneg', data=combined, ax=ax, color = 'green', alpha = 0.2)
+        ax = sns.lineplot(x='Date_x', y='2stdevneg', data=combined, ax=ax, color = 'green', alpha = 0.2)
         plt.grid()
         # X Axis
         # plt.xlim(start_date, end_date)
@@ -169,9 +194,9 @@ def wb_indicator() -> None:
         st.pyplot(fig)
         # st.write(combined)
 
-        # PLOT WB Indicator GRAPH
+        # PLOT GDP GRAPH
         fig, ax = plt.subplots(figsize=(20, 5))
-        ax = sns.lineplot(x='Date_x', y='Buffett_Indicator', data=combined, ax=ax)
+        ax = sns.lineplot(x='Date_x', y='PIB', data=combined, ax=ax)
         plt.grid()
         # X Axis
         # plt.xlim(start_date, end_date)
@@ -184,3 +209,4 @@ def wb_indicator() -> None:
         ax.yaxis.set_major_locator(plt.MaxNLocator(10))
         st.pyplot(fig)
         # st.write(combined)
+
