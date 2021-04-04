@@ -49,7 +49,17 @@ class DataCollector:
 
         return data
 
-    def get_tickers_set(self, *, qty: int = 10) -> pd.DataFrame:
+    def get_gdp(codigo_bcb: str = '1207') -> pd.DataFrame:
+        url = 'http://api.bcb.gov.br/dados/serie/bcdata.sgs.1207/dados?formato=json'
+        df = pd.read_json(url)
+        df['Date'] = pd.to_datetime(df['data'], dayfirst=True)
+        # df.set_index('data', inplace = True)
+        df.drop(['data'], axis=1, inplace=True)
+        df.rename(columns={'valor': 'PIB'}, inplace=True)
+
+        return df
+
+    def get_tickers_set(self, *, market: str = 'br', qty: int = 10) -> pd.DataFrame:
         """[summary]
         Args:
             market (str, optional): [description]. Defaults to 'br'.
