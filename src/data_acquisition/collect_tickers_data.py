@@ -49,6 +49,7 @@ class DataCollector:
         url = 'http://api.bcb.gov.br/dados/serie/bcdata.sgs.1207/dados?formato=json'
         df = pd.read_json(url)
         df['Date'] = pd.to_datetime(df['data'], dayfirst=True)
+        # df.set_index('data', inplace = True)
         df.drop(['data'], axis=1, inplace=True)
         df.rename(columns={'valor': 'PIB'}, inplace=True)
 
