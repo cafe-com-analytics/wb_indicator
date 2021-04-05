@@ -31,7 +31,7 @@ def wb_indicator() -> None:
         market_name = "American"
 
     indexes_list = config.get('MARKET', market)
-    indexes_list = sorted(indexes_list.split(','))
+    # indexes_list = sorted(indexes_list.split(','))
 
     # indexes_selection = st.sidebar.multiselect(f"{market_name} market indexes:", indexes_list)
     indexes_selection = indexes_list
@@ -40,8 +40,8 @@ def wb_indicator() -> None:
     start_date = end_date - timedelta(days=3150)
     # start_date = '28/08/2008'
 
-    start_date = st.sidebar.date_input('Start date', start_date)
-    end_date = st.sidebar.date_input('End date', end_date)
+    # start_date = st.sidebar.date_input('Start date', start_date)
+    # end_date = st.sidebar.date_input('End date', end_date)
 
     if start_date < end_date:
         st.sidebar.info(f"""Start date: {start_date}\n\nEnd date: {end_date}""")
