@@ -11,6 +11,7 @@ seaborn = "*"
 matplotlib = "*"
 ipykernel = "*"
 bokeh = "*"
+xlrd = "*"
 
 [dev-packages]
 flake8 = "*"
