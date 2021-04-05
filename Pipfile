@@ -12,6 +12,7 @@ matplotlib = "*"
 ipykernel = "*"
 bokeh = "*"
 xlrd = "*"
+openpyxl = "*"
 
 [dev-packages]
 flake8 = "*"
