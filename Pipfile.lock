@@ -913,11 +913,10 @@
         },
         "streamlit": {
             "hashes": [
-                "sha256:35c2c901b5fee15174a0cc03e465e9b13a10f8f411d925c2ca9dd012bdc8ab20",
-                "sha256:8532aad5a05af08dd48e955fa64bc9fe9e3fb99a4c95514215a597ba56e05121"
+                "sha256:350b49b8a0677fb781ece048b225d39b298dd0375cd298d3520f48583178959a",
+                "sha256:362539ea398d9528742a47e92216e076cc594e012998504aaec2ee00249ac331"
             ],
-            "index": "pypi",
-            "version": "==0.79.0"
+            "version": "==0.82.0"
         },
         "terminado": {
             "hashes": [
