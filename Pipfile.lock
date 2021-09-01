@@ -1162,10 +1162,9 @@
         },
         "yfinance": {
             "hashes": [
-                "sha256:fe4dc46807eceadc6604bf51ece7297b752dc5402a38a87385094fbfc7565fa0"
+                "sha256:11364fe94f1cf7811c45fc620acb61c8c45fcb88de317c7718bbdbc9c1573a4c"
             ],
-            "index": "pypi",
-            "version": "==0.1.59"
+            "version": "==0.1.63"
         }
     },
     "develop": {
