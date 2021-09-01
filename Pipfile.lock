@@ -991,11 +991,10 @@
         },
         "terminado": {
             "hashes": [
-                "sha256:9a7dbcfbc2778830eeb70261bf7aa9d98a3eac8631a3afe3febeb57c12f798be",
-                "sha256:daed77f9fad7b32558fa84b226a76f45a02242c20813502f36c4e1ade6d8f1ad"
+                "sha256:962b402edbb480718054dc37027bada293972ecadfb587b89f01e2b8660a2132",
+                "sha256:9e0457334863be3e6060c487ad60e0995fa1df54f109c67b24ff49a4f2f34df5"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==0.9.4"
+            "version": "==0.11.1"
         },
         "testpath": {
             "hashes": [
