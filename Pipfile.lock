@@ -93,10 +93,10 @@
         },
         "bokeh": {
             "hashes": [
-                "sha256:dd417708f90702190222b1068a645acae99e66d4b58d7a336d545aeaa04e9b40"
+                "sha256:6fa00ed8baab5cca33f4175792c309fa2536eaae7e90abee884501ba8c90fddb",
+                "sha256:91a7c3b8a42d9275df26f13269859a1add82dc9e5dda316f7476ad76a5a10851"
             ],
-            "index": "pypi",
-            "version": "==2.3.0"
+            "version": "==2.4.0"
         },
         "cachetools": {
             "hashes": [
