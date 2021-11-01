@@ -818,10 +818,10 @@
         },
         "pydeck": {
             "hashes": [
-                "sha256:9f77d28b45504010c48cc7a43bbc2108749862f6738f94dba2e9ad16a39b0be1",
-                "sha256:a431484424e92f75454cd5066935241d9244bc8c78afe478a7f83143878f28d0"
+                "sha256:7fc49b00840608068b930f9269169c7c9f3198b8b4635c934ba6d887c4e54503",
+                "sha256:907601c99f7510e16d27d7cb62bfa145216d166a2b5c9c50cfe2b65b032ebd2e"
             ],
-            "version": "==0.6.1"
+            "version": "==0.7.1"
         },
         "pygments": {
             "hashes": [
