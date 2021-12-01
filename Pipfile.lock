@@ -72,11 +72,10 @@
         },
         "base58": {
             "hashes": [
-                "sha256:171a547b4a3c61e1ae3807224a6f7aec75e364c4395e7562649d7335768001a2",
-                "sha256:8225891d501b68c843ffe30b86371f844a21c6ba00da76f52f9b998ba771fb48"
+                "sha256:11a36f4d3ce51dfc1043f3218591ac4eb1ceb172919cebe05b52a5bcc8d245c2",
+                "sha256:c5d0cb3f5b6e81e8e35da5754388ddcc6d0d14b6c6a132cb93d69ed580a7278c"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==2.1.0"
+            "version": "==2.1.1"
         },
         "bleach": {
             "hashes": [
