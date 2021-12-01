@@ -581,11 +581,10 @@
         },
         "nest-asyncio": {
             "hashes": [
-                "sha256:76d6e972265063fe92a90b9cc4fb82616e07d586b346ed9d2c89a4187acea39c",
-                "sha256:afc5a1c515210a23c461932765691ad39e8eba6551c055ac8d5546e69250d0aa"
+                "sha256:21b4e6b9ee3fe9108a048e6f6f2f1bdc5d9926022c6c4592d668ea3493784d46",
+                "sha256:5df9667bed073cb93b299fd2f4e0c9372a370c237ec59ee24aa552867818d10e"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==1.5.1"
+            "version": "==1.5.2"
         },
         "notebook": {
             "hashes": [
