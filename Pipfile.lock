@@ -1226,10 +1226,10 @@
         },
         "yfinance": {
             "hashes": [
-                "sha256:fe4dc46807eceadc6604bf51ece7297b752dc5402a38a87385094fbfc7565fa0"
+                "sha256:08d7a469fa6b58cda95c7babef2d0e146d66fe8ad16163a851624a6a4d2ca7f3",
+                "sha256:7cb21d432769b50591a688266aaabfcb3c371a8faf1fce6665cdbe385687d972"
             ],
-            "index": "pypi",
-            "version": "==0.1.59"
+            "version": "==0.1.68"
         }
     },
     "develop": {
