@@ -521,11 +521,10 @@
         },
         "nbclient": {
             "hashes": [
-                "sha256:db17271330c68c8c88d46d72349e24c147bb6f34ec82d8481a8f025c4d26589c",
-                "sha256:e79437364a2376892b3f46bedbf9b444e5396cfb1bc366a472c37b48e9551500"
+                "sha256:cdef7757cead1735d2c70cc66095b072dced8a1e6d1c7639ef90cd3e04a11f2e",
+                "sha256:f251bba200a2b401a061dfd700a7a70b5772f664fb49d4a2d3e5536ec0e98c76"
             ],
-            "markers": "python_full_version >= '3.6.1'",
-            "version": "==0.5.3"
+            "version": "==0.6.4"
         },
         "nbconvert": {
             "hashes": [
