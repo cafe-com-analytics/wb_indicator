@@ -1002,11 +1002,10 @@
         },
         "streamlit": {
             "hashes": [
-                "sha256:35c2c901b5fee15174a0cc03e465e9b13a10f8f411d925c2ca9dd012bdc8ab20",
-                "sha256:8532aad5a05af08dd48e955fa64bc9fe9e3fb99a4c95514215a597ba56e05121"
+                "sha256:5f7fad405fa7fc9097ae88e5a34c4834f3bcfb49d57521d7d1ec7f966a6cf0a4",
+                "sha256:8c2952b868fe371e42a49dc54d4dc3f52125d7c3c487a9a822ba01df4fbe8bac"
             ],
-            "index": "pypi",
-            "version": "==0.79.0"
+            "version": "==1.9.2"
         },
         "terminado": {
             "hashes": [
