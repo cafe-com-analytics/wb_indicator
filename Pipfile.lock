@@ -542,11 +542,10 @@
         },
         "nbconvert": {
             "hashes": [
-                "sha256:39e9f977920b203baea0be67eea59f7b37a761caa542abe80f5897ce3cf6311d",
-                "sha256:cbbc13a86dfbd4d1b5dee106539de0795b4db156c894c2c5dc382062bbc29002"
+                "sha256:223e46e27abe8596b8aed54301fadbba433b7ffea8196a68fd7b1ff509eee99d",
+                "sha256:c56dd0b8978a1811a5654f74c727ff16ca87dd5a43abd435a1c49b840fcd8360"
             ],
-            "markers": "python_version >= '3.6'",
-            "version": "==6.0.7"
+            "version": "==6.5.0"
         },
         "nbformat": {
             "hashes": [
