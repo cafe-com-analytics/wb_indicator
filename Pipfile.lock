@@ -292,11 +292,10 @@
         },
         "jupyter-client": {
             "hashes": [
-                "sha256:c4bca1d0846186ca8be97f4d2fa6d2bae889cce4892a167ffa1ba6bd1f73e782",
-                "sha256:e053a2c44b6fa597feebe2b3ecb5eea3e03d1d91cc94351a52931ee1426aecfc"
+                "sha256:17d74b0d0a7b24f1c8c527b24fcf4607c56bee542ffe8e3418e50b21e514b621",
+                "sha256:aa9a6c32054b290374f95f73bb0cae91455c58dfb84f65c8591912b8f65e6d56"
             ],
-            "markers": "python_version >= '3.5'",
-            "version": "==6.1.12"
+            "version": "==7.3.4"
         },
         "jupyter-core": {
             "hashes": [
