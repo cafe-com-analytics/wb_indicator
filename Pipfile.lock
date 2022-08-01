@@ -124,12 +124,8 @@
             "version": "==3.3"
         },
         "ipykernel": {
-            "hashes": [
-                "sha256:21abd584543759e49010975a4621603b3cf871b1039cb3879a14094717692614",
-                "sha256:a682e4f7affd86d9ce9b699d21bcab6d5ec9fbb2bfcb194f2706973b252bc509"
-            ],
-            "index": "pypi",
-            "version": "==5.5.3"
+            "hashes": [],
+            "version": "==6.15.1"
         },
         "ipython": {
             "hashes": [
