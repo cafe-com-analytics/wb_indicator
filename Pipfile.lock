@@ -139,11 +139,8 @@
             "version": "==0.2.0"
         },
         "ipywidgets": {
-            "hashes": [
-                "sha256:9f1a43e620530f9e570e4a493677d25f08310118d315b00e25a18f12913c41f0",
-                "sha256:e6513cfdaf5878de30f32d57f6dc2474da395a2a2991b94d487406c0ab7f55ca"
-            ],
-            "version": "==7.6.3"
+            "hashes": [],
+            "version": "==8.0.1"
         },
         "jedi": {
             "hashes": [
