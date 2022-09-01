@@ -362,12 +362,8 @@
             "version": "==0.10.2"
         },
         "toolz": {
-            "hashes": [
-                "sha256:1bc473acbf1a1db4e72a1ce587be347450e8f08324908b8a266b486f408f04d5",
-                "sha256:c7a47921f07822fe534fb1c01c9931ab335a4390c782bd28c6bcc7c2f71f3fbf"
-            ],
-            "markers": "python_version >= '3.5'",
-            "version": "==0.11.1"
+            "hashes": [],
+            "version": "==0.12.0"
         },
         "tornado": {
             "hashes": [
