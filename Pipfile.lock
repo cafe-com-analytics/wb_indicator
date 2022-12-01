@@ -112,12 +112,8 @@
             "version": "==1.1.0"
         },
         "gitdb": {
-            "hashes": [
-                "sha256:6c4cc71933456991da20917998acbe6cf4fb41eeaab7d6d67fbc05ecd4c865b0",
-                "sha256:96bf5c08b157a666fec41129e6d327235284cca4c81e92109260f353ba138005"
-            ],
-            "markers": "python_version >= '3.4'",
-            "version": "==4.0.7"
+            "hashes": [],
+            "version": "==4.0.10"
         },
         "gitpython": {
             "hashes": [
