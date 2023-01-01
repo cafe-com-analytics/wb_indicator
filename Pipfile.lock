@@ -167,12 +167,8 @@
             "version": "==0.2.2"
         },
         "jupyterlab-widgets": {
-            "hashes": [
-                "sha256:5c1a29a84d3069208cb506b10609175b249b6486d6b1cbae8fcde2a11584fb78",
-                "sha256:caeaf3e6103180e654e7d8d2b81b7d645e59e432487c1d35a41d6d3ee56b3fef"
-            ],
-            "markers": "python_version >= '3.6'",
-            "version": "==1.0.0"
+            "hashes": [],
+            "version": "==3.0.5"
         },
         "kiwisolver": {
             "hashes": [
