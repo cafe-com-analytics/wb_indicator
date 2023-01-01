@@ -231,10 +231,8 @@
             "version": "==1.5.2"
         },
         "pandocfilters": {
-            "hashes": [
-                "sha256:bc63fbb50534b4b1f8ebe1860889289e8af94a23bff7445259592df25a3906eb"
-            ],
-            "version": "==1.4.3"
+            "hashes": [],
+            "version": "==1.5.0"
         },
         "parso": {
             "hashes": [
