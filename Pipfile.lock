@@ -207,12 +207,8 @@
             "version": "==5.7.3"
         },
         "nest-asyncio": {
-            "hashes": [
-                "sha256:76d6e972265063fe92a90b9cc4fb82616e07d586b346ed9d2c89a4187acea39c",
-                "sha256:afc5a1c515210a23c461932765691ad39e8eba6551c055ac8d5546e69250d0aa"
-            ],
-            "markers": "python_version >= '3.5'",
-            "version": "==1.5.1"
+            "hashes": [],
+            "version": "==1.5.6"
         },
         "notebook": {
             "hashes": [
