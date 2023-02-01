@@ -350,11 +350,8 @@
             "version": "==0.17.1"
         },
         "testpath": {
-            "hashes": [
-                "sha256:60e0a3261c149755f4399a1fff7d37523179a70fdc3abdf78de9fc2604aeec7e",
-                "sha256:bfcf9411ef4bf3db7579063e0546938b1edda3d69f4e1fb8756991f5951f85d4"
-            ],
-            "version": "==0.4.4"
+            "hashes": [],
+            "version": "==0.6.0"
         },
         "toml": {
             "hashes": [
