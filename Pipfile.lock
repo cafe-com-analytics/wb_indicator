@@ -216,7 +216,7 @@
         },
         "numpy": {
             "hashes": [],
-            "version": "==1.24.1"
+            "version": "==1.24.3"
         },
         "openpyxl": {
             "hashes": [],
