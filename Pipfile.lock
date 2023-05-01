@@ -42,7 +42,7 @@
         },
         "attrs": {
             "hashes": [],
-            "version": "==22.2.0"
+            "version": "==23.1.0"
         },
         "backcall": {
             "hashes": [
@@ -424,7 +424,7 @@
     "develop": {
         "attrs": {
             "hashes": [],
-            "version": "==22.2.0"
+            "version": "==23.1.0"
         },
         "flake8": {
             "hashes": [],
