@@ -367,7 +367,7 @@
         },
         "tornado": {
             "hashes": [],
-            "version": "==6.2"
+            "version": "==6.3.1"
         },
         "traitlets": {
             "hashes": [],
