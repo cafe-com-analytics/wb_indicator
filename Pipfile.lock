@@ -18,7 +18,7 @@
     "default": {
         "altair": {
             "hashes": [],
-            "version": "==4.2.2"
+            "version": "==5.0.1"
         },
         "argon2-cffi": {
             "hashes": [],
@@ -42,7 +42,7 @@
         },
         "attrs": {
             "hashes": [],
-            "version": "==22.2.0"
+            "version": "==23.1.0"
         },
         "backcall": {
             "hashes": [
@@ -61,19 +61,19 @@
         },
         "blinker": {
             "hashes": [],
-            "version": "==1.5"
+            "version": "==1.6.2"
         },
         "bokeh": {
             "hashes": [],
-            "version": "==3.0.3"
+            "version": "==3.1.1"
         },
         "cachetools": {
             "hashes": [],
-            "version": "==5.3.0"
+            "version": "==5.3.1"
         },
         "certifi": {
             "hashes": [],
-            "version": "==2022.12.7"
+            "version": "==2023.5.7"
         },
         "cffi": {
             "hashes": [],
@@ -117,7 +117,7 @@
         },
         "gitpython": {
             "hashes": [],
-            "version": "==3.1.30"
+            "version": "==3.1.31"
         },
         "idna": {
             "hashes": [],
@@ -125,11 +125,11 @@
         },
         "ipykernel": {
             "hashes": [],
-            "version": "==6.21.0"
+            "version": "==6.23.1"
         },
         "ipython": {
             "hashes": [],
-            "version": "==8.9.0"
+            "version": "==8.13.2"
         },
         "ipython-genutils": {
             "hashes": [
@@ -140,7 +140,7 @@
         },
         "ipywidgets": {
             "hashes": [],
-            "version": "==8.0.4"
+            "version": "==8.0.6"
         },
         "jedi": {
             "hashes": [],
@@ -156,11 +156,11 @@
         },
         "jupyter-client": {
             "hashes": [],
-            "version": "==8.0.2"
+            "version": "==8.2.0"
         },
         "jupyter-core": {
             "hashes": [],
-            "version": "==5.2.0"
+            "version": "==5.3.0"
         },
         "jupyterlab-pygments": {
             "hashes": [],
@@ -168,7 +168,7 @@
         },
         "jupyterlab-widgets": {
             "hashes": [],
-            "version": "==3.0.5"
+            "version": "==3.0.7"
         },
         "kiwisolver": {
             "hashes": [],
@@ -184,11 +184,11 @@
         },
         "matplotlib": {
             "hashes": [],
-            "version": "==3.6.3"
+            "version": "==3.7.1"
         },
         "mistune": {
             "hashes": [],
-            "version": "==2.0.4"
+            "version": "==2.0.5"
         },
         "multitasking": {
             "hashes": [],
@@ -196,15 +196,15 @@
         },
         "nbclient": {
             "hashes": [],
-            "version": "==0.7.2"
+            "version": "==0.8.0"
         },
         "nbconvert": {
             "hashes": [],
-            "version": "==7.2.9"
+            "version": "==7.4.0"
         },
         "nbformat": {
             "hashes": [],
-            "version": "==5.7.3"
+            "version": "==5.9.0"
         },
         "nest-asyncio": {
             "hashes": [],
@@ -212,23 +212,23 @@
         },
         "notebook": {
             "hashes": [],
-            "version": "==6.5.2"
+            "version": "==6.5.4"
         },
         "numpy": {
             "hashes": [],
-            "version": "==1.24.1"
+            "version": "==1.24.3"
         },
         "openpyxl": {
             "hashes": [],
-            "version": "==3.1.0"
+            "version": "==3.1.2"
         },
         "packaging": {
             "hashes": [],
-            "version": "==23.0"
+            "version": "==23.1"
         },
         "pandas": {
             "hashes": [],
-            "version": "==1.5.3"
+            "version": "==2.0.2"
         },
         "pandocfilters": {
             "hashes": [],
@@ -255,19 +255,19 @@
         },
         "pillow": {
             "hashes": [],
-            "version": "==9.4.0"
+            "version": "==9.5.0"
         },
         "prometheus-client": {
             "hashes": [],
-            "version": "==0.16.0"
+            "version": "==0.17.0"
         },
         "prompt-toolkit": {
             "hashes": [],
-            "version": "==3.0.36"
+            "version": "==3.0.38"
         },
         "protobuf": {
             "hashes": [],
-            "version": "==4.21.12"
+            "version": "==4.23.2"
         },
         "ptyprocess": {
             "hashes": [
@@ -279,7 +279,7 @@
         },
         "pyarrow": {
             "hashes": [],
-            "version": "==11.0.0"
+            "version": "==12.0.0"
         },
         "pycparser": {
             "hashes": [],
@@ -291,7 +291,7 @@
         },
         "pygments": {
             "hashes": [],
-            "version": "==2.14.0"
+            "version": "==2.15.1"
         },
         "pyparsing": {
             "hashes": [],
@@ -307,7 +307,7 @@
         },
         "pytz": {
             "hashes": [],
-            "version": "==2022.7.1"
+            "version": "==2023.3"
         },
         "pyyaml": {
             "hashes": [],
@@ -315,15 +315,15 @@
         },
         "pyzmq": {
             "hashes": [],
-            "version": "==25.0.0"
+            "version": "==25.1.0"
         },
         "requests": {
             "hashes": [],
-            "version": "==2.28.2"
+            "version": "==2.31.0"
         },
         "scipy": {
             "hashes": [],
-            "version": "==1.10.0"
+            "version": "==1.10.1"
         },
         "seaborn": {
             "hashes": [],
@@ -331,7 +331,7 @@
         },
         "send2trash": {
             "hashes": [],
-            "version": "==1.8.0"
+            "version": "==1.8.2"
         },
         "six": {
             "hashes": [],
@@ -343,7 +343,7 @@
         },
         "streamlit": {
             "hashes": [],
-            "version": "==1.17.0"
+            "version": "==1.22.0"
         },
         "terminado": {
             "hashes": [],
@@ -367,7 +367,7 @@
         },
         "tornado": {
             "hashes": [],
-            "version": "==6.2"
+            "version": "==6.3.2"
         },
         "traitlets": {
             "hashes": [],
@@ -375,15 +375,15 @@
         },
         "typing-extensions": {
             "hashes": [],
-            "version": "==4.4.0"
+            "version": "==4.6.2"
         },
         "tzlocal": {
             "hashes": [],
-            "version": "==4.2"
+            "version": "==5.0.1"
         },
         "urllib3": {
             "hashes": [],
-            "version": "==1.26.14"
+            "version": "==2.0.2"
         },
         "validators": {
             "hashes": [],
@@ -391,7 +391,7 @@
         },
         "watchdog": {
             "hashes": [],
-            "version": "==2.2.1"
+            "version": "==3.0.0"
         },
         "wcwidth": {
             "hashes": [],
@@ -406,7 +406,7 @@
         },
         "widgetsnbextension": {
             "hashes": [],
-            "version": "==4.0.5"
+            "version": "==4.0.7"
         },
         "xlrd": {
             "hashes": [
@@ -418,13 +418,13 @@
         },
         "yfinance": {
             "hashes": [],
-            "version": "==0.2.9"
+            "version": "==0.2.18"
         }
     },
     "develop": {
         "attrs": {
             "hashes": [],
-            "version": "==22.2.0"
+            "version": "==23.1.0"
         },
         "flake8": {
             "hashes": [],
@@ -440,7 +440,7 @@
         },
         "packaging": {
             "hashes": [],
-            "version": "==23.0"
+            "version": "==23.1"
         },
         "pluggy": {
             "hashes": [],
@@ -464,7 +464,7 @@
         },
         "pytest": {
             "hashes": [],
-            "version": "==7.2.1"
+            "version": "==7.3.1"
         },
         "toml": {
             "hashes": [
