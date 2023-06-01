@@ -307,7 +307,7 @@
         },
         "pytz": {
             "hashes": [],
-            "version": "==2022.7.1"
+            "version": "==2023.3"
         },
         "pyyaml": {
             "hashes": [],
