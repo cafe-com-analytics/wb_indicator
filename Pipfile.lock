@@ -18,7 +18,7 @@
     "default": {
         "altair": {
             "hashes": [],
-            "version": "==4.2.2"
+            "version": "==5.0.1"
         },
         "argon2-cffi": {
             "hashes": [],
