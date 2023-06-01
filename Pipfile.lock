@@ -418,7 +418,7 @@
         },
         "yfinance": {
             "hashes": [],
-            "version": "==0.2.9"
+            "version": "==0.2.18"
         }
     },
     "develop": {
