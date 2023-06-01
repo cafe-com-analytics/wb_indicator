@@ -267,7 +267,7 @@
         },
         "protobuf": {
             "hashes": [],
-            "version": "==4.21.12"
+            "version": "==4.23.2"
         },
         "ptyprocess": {
             "hashes": [
