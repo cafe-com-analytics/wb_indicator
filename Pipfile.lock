@@ -61,7 +61,7 @@
         },
         "blinker": {
             "hashes": [],
-            "version": "==1.5"
+            "version": "==1.6.2"
         },
         "bokeh": {
             "hashes": [],
